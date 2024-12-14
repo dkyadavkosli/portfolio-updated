@@ -36,3 +36,84 @@
     transform: rotate(360deg);
   }
 }
+
+.strip-container {
+  white-space: nowrap;
+  overflow: hidden; /* Ensure content does not overflow */
+  background-color: transparent;
+}
+
+.strip-content {
+  display: inline-block; /* Ensure content stays in a single line */
+  animation: moveStrip1 20s linear infinite;
+}
+
+@keyframes moveStrip {
+  0% {
+    transform: translateX(100vw);
+  }
+  100% {
+    transform: translateX(-100vw);
+  }
+}
+
+@keyframes moveStrip1 {
+  0% {
+    transform: translateX(-100vw);
+  }
+  100% {
+    transform: translateX(100vw);
+  }
+}
+
+.intro-strip-content {
+  display: inline-block; /* Ensure content stays in a single line */
+  animation: moveStrip 16s linear infinite;
+}
+
+
+.cursor{
+  position: fixed;
+  width: 70px;
+  height: 70px;
+  border: 2px solid #c6c6c6;
+  border-radius: 50%;
+  left: 0;
+  top: 0;
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+  transition: .1s;
+}
+
+.cursor2{
+  position: fixed;
+  width: 8px;
+  height: 8px;
+  background-color: #c6c6c6;
+  border-radius: 50%;
+  left: 0;
+  top: 0;
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+  transition: .15s;
+}
+
+.content:hover ~ .cursor{
+  transform: translate(-50%, -50%) scale(1.5);
+  background-color: #c6c6c6;
+  opacity: .5;
+}
+
+.content:hover ~ .cursor2{
+  opacity: 0;
+}
+
+.project-card {
+  perspective: 1000px; /* Adds perspective for 3D effect */
+}
+
+.project-card:hover .h-full {
+  transform-style: preserve-3d;
+  transition: transform 1.5s;
+  transform: rotateY(360deg); /* Rotate 180 degrees along y-axis on hover */
+}
