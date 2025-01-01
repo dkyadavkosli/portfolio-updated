@@ -15,7 +15,7 @@ function EntryPage() {
             return 0;
           }
         });
-      }, 120);
+      }, 80);
   
       return () => clearInterval(interval);
     }, []);

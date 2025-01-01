@@ -16,12 +16,11 @@ import RecentProject from './components/RecentProject';
 import Footer from './components/Footer';
 import MySkills from './components/MySkills';
 import SkillStatementStrip from './components/SkillStatementStrip';
-
 function App() {
 
   const [visible, setVisible] = useState(0)
 
-  setTimeout(() => setVisible(1), 12000)
+  setTimeout(() => setVisible(1), 8000)
 
   const cursorRef = useRef(null);
   const cursor2Ref = useRef(null);
@@ -48,17 +47,21 @@ function App() {
       <div className={`${visible === 1 ? 'hidden' : ''}`}>
         <EntryPage />
       </div>
-      <motion.div className={`${visible === 0 ? 'hidden' : ''}`} initial={{ y: "100vh" }} animate={{ y: visible === 1 ? 0 : "100vh" }} transition={{ duration: 2 }}>
+      <motion.div 
+        className={`${visible === 0 ? 'hidden' : ''}`} 
+        initial={{ y: "100vh" }} 
+        animate={{ y: visible === 1 ? 0 : "100vh" }} 
+        transition={{ duration: 1.2 }}
+      >
         <HeroSection />
         <IntroStrip />
         <Intro />
         <SkillStrip />
         <About />
+        <SkillStatementStrip />
+        <Skills />
         <ProjectStrip />
         <RecentProject />
-        <SkillStatementStrip />
-        {/* <MySkills /> */}
-        <Skills />
         <ContactStrip />
         <Contact />
         <Footer />
