@@ -1,7 +1,7 @@
 import React from 'react'
 import pic1 from "../assets/freelance.png"
-import pic2 from "../assets/crowd.png"
-import pic3 from "../assets/esports.png"
+import pic2 from "../assets/esports.png"
+import pic3 from "../assets/crowd.png"
 
 function RecentProjectCard({title, tech, link, count}) {
     return (
