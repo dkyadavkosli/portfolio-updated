@@ -82,7 +82,7 @@ function About() {
                                 <SiLinkedin />
                             </a>
                             <a
-                                href="https://www.instagram.com/kal.se_padhai.shuru/"
+                                href="https://www.instagram.com/dipesh_k.27/"
                                 target="_blank"
                                 className="hover:text-slate-500 dark:hover:text-sky-300"
                             >
@@ -154,10 +154,10 @@ function About() {
                 <article className={`pt-5 lg:hidden px-5 bg-gradient-to-r from-[#141414] to-[#1f1f1f] mt-5 rounded-xl text-slate-300 text-start ${isVisible ? 'opacity-100 translate-y-0' : 'lg:opacity-0 lg:translate-y-10'
                         } transition-opacity duration-1000 ease-in-out transform-gpu`}>
                     <h3 className='text-xl tracking-wider text-white text-start mb-3'>FAVOURITE TUNES</h3>
-                    <iframe src="https://open.spotify.com/embed/track/52AXCViV9CJCayQkIzokkr?utm_source=generator&theme=0" 
+                    <iframe src="https://open.spotify.com/embed/track/5KsUSkoxajNI8CIJ3spjST?utm_source=generator&theme=0" 
                     width="100%" height="102" frameBorder="0" allowfullscreen="" 
                     allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-                    <iframe src="https://open.spotify.com/embed/track/7aMIuIT4db2iH6gMllU8dW?utm_source=generator&theme=0" 
+                    <iframe src="https://open.spotify.com/embed/track/46bHffIYlRKDZJG1Wbv8vi?utm_source=generator&theme=0" 
                     width="100%" height="102" frameBorder="0" allowfullscreen="" 
                     allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
                     <iframe src="https://open.spotify.com/embed/track/0ZxIxTxup7AiJIHDwodwCR?utm_source=generator&theme=0" 
@@ -188,10 +188,10 @@ function About() {
                 <article className={`pt-5 px-5 bg-gradient-to-r from-[#141414] to-[#1f1f1f] mt-5 rounded-xl text-slate-300 text-start ${isVisible ? 'opacity-100 translate-y-0' : 'lg:opacity-0 lg:translate-y-10'
                         } transition-opacity duration-1000 ease-in-out transform-gpu`}>
                     <h3 className='text-xl tracking-wider text-white text-start mb-3'>FAVOURITE TUNES</h3>
-                    <iframe src="https://open.spotify.com/embed/track/52AXCViV9CJCayQkIzokkr?utm_source=generator&theme=0" 
+                    <iframe src="https://open.spotify.com/embed/track/5KsUSkoxajNI8CIJ3spjST?utm_source=generator&theme=0" 
                     width="100%" height="102" frameBorder="0" allowfullscreen="" 
                     allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-                    <iframe src="https://open.spotify.com/embed/track/7aMIuIT4db2iH6gMllU8dW?utm_source=generator&theme=0" 
+                    <iframe src="https://open.spotify.com/embed/track/46bHffIYlRKDZJG1Wbv8vi?utm_source=generator&theme=0" 
                     width="100%" height="102" frameBorder="0" allowfullscreen="" 
                     allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
                     <iframe src="https://open.spotify.com/embed/track/0ZxIxTxup7AiJIHDwodwCR?utm_source=generator&theme=0" 

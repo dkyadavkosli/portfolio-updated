@@ -33,7 +33,7 @@ function Intro() {
                         <div className='flex flex-col justify-center'>
                             <div className='h-[20px] w-[20px] rounded-full bg-sky-400'></div>
                         </div>
-                        <a href='https://drive.google.com/file/d/1NDEGdHq2FQ067xkk6adF3MXRkIj7g8oC/view?usp=sharing' target='_blank' className='font-light md:text-base text-sm'>MY RESUME</a>
+                        <a href='https://drive.google.com/file/d/1EIOcWyh8vcbz4nAaylOymrGdjdC_4x7z/view?usp=sharing' target='_blank' className='font-light md:text-base text-sm'>MY RESUME</a>
                     </a>
                 </div>
             </div>

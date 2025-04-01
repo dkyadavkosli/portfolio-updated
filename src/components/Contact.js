@@ -97,7 +97,7 @@ const Contact = () => {
                             <SiLinkedin />
                         </a>
                         <a
-                            href="https://www.instagram.com/kal.se_padhai.shuru/"
+                            href="https://www.instagram.com/dipesh_k.27/"
                             target="_blank"
                             className="hover:text-slate-500 dark:hover:text-sky-300"
                         >
