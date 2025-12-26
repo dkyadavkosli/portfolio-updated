@@ -15,638 +15,157 @@ import redux from "../assets/redux.png";
 import solidity from "../assets/solidity.png";
 import tailwind from "../assets/tailwind.svg";
 import typescript from "../assets/typescript.png";
-import { motion , useAnimation } from "framer-motion"
-import {useInView} from "react-intersection-observer";
+import { motion } from "framer-motion";
+import { useInView } from "react-intersection-observer";
 
 function Skills() {
-  const [myC, setMyC] = useState(0);
-  const [myCpp, setMyCpp] = useState(0);
-  const [myCss, setMyCss] = useState(0);
-  const [myHtml, setMyHtml] = useState(0);
-  const [myJs, setMyJs] = useState(0);
-  const [myMongoDb, setMyMongoDb] = useState(0);
-  const [myNext, setMyNext] = useState(0);
-  const [myNode, setMyNode] = useState(0);
-  const [myPostman, setMyPostman] = useState(0);
-  const [myPython, setMyPython] = useState(0);
-  const [myReact, setMyReact] = useState(0);
-  const [myRedux, setMyRedux] = useState(0);
-  const [mySolidity, setMySolidity] = useState(0);
-  const [myTailwind, setMyTailwind] = useState(0);
-  const [myTs, setMyTs] = useState(0);
+  const { ref, inView } = useInView({
+    threshold: 0.1,
+  });
 
-  const {ref , inView} = useInView();
-  const animation = useAnimation();
+  const skills = [
+    { name: "C", icon: c, category: "Language" },
+    { name: "C++", icon: cpp, category: "Language" },
+    { name: "HTML", icon: html, category: "Frontend" },
+    { name: "CSS", icon: css, category: "Frontend" },
+    { name: "JavaScript", icon: js, category: "Frontend" },
+    { name: "TypeScript", icon: typescript, category: "Frontend" },
+    { name: "Tailwind CSS", icon: tailwind, category: "Frontend" },
+    { name: "Python", icon: python, category: "Language" },
+    { name: "React", icon: react, category: "Frontend" },
+    { name: "Redux", icon: redux, category: "Frontend" },
+    { name: "Next.js", icon: next, category: "Frontend" },
+    { name: "Solidity", icon: solidity, category: "Blockchain" },
+    { name: "Node.js", icon: nodejs, category: "Backend" },
+    { name: "MongoDB", icon: mongodb, category: "Database" },
+    { name: "Postman", icon: postman, category: "Tools" },
+  ];
 
-  useEffect(() => {
-    if(inView){
-      animation.start({
-          scale:1,
-          transition:{
-              duration:2  , type:"spring"
-          }
-      })
-  }
-  if(!inView){
-      animation.start({
-          scale:0.1
-      })
-  }
-  }, [inView])
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.05,
+      },
+    },
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 20, scale: 0.8 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      scale: 1,
+      transition: {
+        duration: 0.5,
+        ease: "easeOut",
+      },
+    },
+  };
 
   return (
-    <div ref={ref} className="xl:pl-44 xl:pr-44 lg:pl-24 lg:pr-24 md:pl-8 md:pr-8 sm:pl-8 sm:pr-8 pl-3 pr-3 lg:pt-[100px] lg:pb-[100px] md:pt-[75px] md:pb-[75px] pt-[50px] pb-[50px] bg-black" id="skills">
-      <div className="lg:grid hidden grid-cols-6 justify-between">
-        <motion.div animate={animation} className="h-[120px] w-[120px] p-[16px] border-[2px] border-slate-200 rounded-full">
-          <img
-            src={c}
-            className={`h-full w-full ${myC === 1 ? "hidden" : ""}`}
-            onMouseEnter={() => setMyC(1)}
-            onMouseLeave={() => setMyC(0)}
-          />
-          <div
-            className={`h-full w-full bg-slate-200 font-semibold text-slate-900 rounded-full flex flex-row justify-center ${
-              myC === 0 ? "hidden" : ""
-            }`}
-            onMouseEnter={() => setMyC(1)}
-            onMouseLeave={() => setMyC(0)}
-          >
-            <div className="flex flex-col justify-center">
-              <h3 className={`text-xl`}>C</h3>
-            </div>
-          </div>
-        </motion.div>
-        <motion.div animate={animation} className="h-[120px] w-[120px] p-[16px] border-[2px] border-slate-200 rounded-full">
-          <img
-            src={cpp}
-            className={`h-full w-full ${myCpp === 1 ? "hidden" : ""}`}
-            onMouseEnter={() => setMyCpp(1)}
-            onMouseLeave={() => setMyCpp(0)}
-          />
-          <div
-            className={`h-full w-full bg-slate-200 font-semibold text-slate-900 rounded-full flex flex-row justify-center ${
-              myCpp === 0 ? "hidden" : ""
-            }`}
-            onMouseEnter={() => setMyCpp(1)}
-            onMouseLeave={() => setMyCpp(0)}
-          >
-            <div className="flex flex-col justify-center">
-              <h3 className={`text-xl`}>C++</h3>
-            </div>
-          </div>
-        </motion.div>
-        <motion.div animate={animation} className="h-[120px] w-[120px] p-[16px] border-[2px] border-slate-200 rounded-full">
-          <img
-            src={html}
-            className={`h-full w-full ${myHtml === 1 ? "hidden" : ""}`}
-            onMouseEnter={() => setMyHtml(1)}
-            onMouseLeave={() => setMyHtml(0)}
-          />
-          <div
-            className={`h-full w-full bg-slate-200 font-semibold text-slate-900 rounded-full flex flex-row justify-center ${
-              myHtml === 0 ? "hidden" : ""
-            }`}
-            onMouseEnter={() => setMyHtml(1)}
-            onMouseLeave={() => setMyHtml(0)}
-          >
-            <div className="flex flex-col justify-center">
-              <h3 className={`text-xl`}>HTML</h3>
-            </div>
-          </div>
-        </motion.div>
-        <motion.div animate={animation} className="h-[120px] w-[120px] p-[16px] border-[2px] border-slate-200 rounded-full">
-          <img
-            src={js}
-            className={`h-full w-full ${myJs === 1 ? "hidden" : ""}`}
-            onMouseEnter={() => setMyJs(1)}
-            onMouseLeave={() => setMyJs(0)}
-          />
-          <div
-            className={`h-full w-full bg-slate-200 font-semibold text-slate-900 rounded-full flex flex-row justify-center ${
-              myJs === 0 ? "hidden" : ""
-            }`}
-            onMouseEnter={() => setMyJs(1)}
-            onMouseLeave={() => setMyJs(0)}
-          >
-            <div className="flex flex-col justify-center">
-              <h3 className={`text-xl`}>JS</h3>
-            </div>
-          </div>
-        </motion.div>
-        <motion.div animate={animation} className="h-[120px] w-[120px] p-[16px] border-[2px] border-slate-200 rounded-full">
-          <img
-            src={typescript}
-            className={`h-full w-full p-[10px] ${myTs === 1 ? "hidden" : ""}`}
-            onMouseEnter={() => setMyTs(1)}
-            onMouseLeave={() => setMyTs(0)}
-          />
-          <div
-            className={`h-full w-full bg-slate-200 font-semibold text-slate-900 rounded-full flex flex-row justify-center ${
-              myTs === 0 ? "hidden" : ""
-            }`}
-            onMouseEnter={() => setMyTs(1)}
-            onMouseLeave={() => setMyTs(0)}
-          >
-            <div className="flex flex-col justify-center">
-              <h3 className={`text-xl`}>TS</h3>
-            </div>
-          </div>
-        </motion.div>
-        <motion.div animate={animation} className="h-[120px] w-[120px] p-[16px] border-[2px] border-slate-200 rounded-full">
-          <img
-            src={css}
-            className={`h-full w-full ${myCss === 1 ? "hidden" : ""}`}
-            onMouseEnter={() => setMyCss(1)}
-            onMouseLeave={() => setMyCss(0)}
-          />
-          <div
-            className={`h-full w-full bg-slate-200 font-semibold text-slate-900 rounded-full flex flex-row justify-center ${
-              myCss === 0 ? "hidden" : ""
-            }`}
-            onMouseEnter={() => setMyCss(1)}
-            onMouseLeave={() => setMyCss(0)}
-          >
-            <div className="flex flex-col justify-center">
-              <h3 className={`text-xl`}>CSS</h3>
-            </div>
-          </div>
-        </motion.div>
-      </div>
-      <div className="lg:grid hidden grid-cols-5 mt-6 pl-10 pr-10 justify-between">
-        <motion.div animate={animation} className="h-[120px] w-[120px] p-[10px] border-[2px] border-slate-200 rounded-full">
-          <img
-            src={tailwind}
-            className={`h-full w-full ${myTailwind === 1 ? "hidden" : ""}`}
-            onMouseEnter={() => setMyTailwind(1)}
-            onMouseLeave={() => setMyTailwind(0)}
-          />
-          <div
-            className={`h-full w-full bg-slate-200 font-semibold text-slate-900 rounded-full flex flex-row justify-center ${
-              myTailwind === 0 ? "hidden" : ""
-            }`}
-            onMouseEnter={() => setMyTailwind(1)}
-            onMouseLeave={() => setMyTailwind(0)}
-          >
-            <div className="flex flex-col justify-center">
-              <h3 className={`text-xl`}>Tailwind</h3>
-            </div>
-          </div>
-        </motion.div>
-        <motion.div animate={animation} className="h-[120px] w-[120px] p-[16px] border-[2px] border-slate-200 rounded-full">
-          <img
-            src={python}
-            className={`h-full w-full ${myPython === 1 ? "hidden" : ""}`}
-            onMouseEnter={() => setMyPython(1)}
-            onMouseLeave={() => setMyPython(0)}
-          />
-          <div
-            className={`h-full w-full bg-slate-200 font-semibold text-slate-900 rounded-full flex flex-row justify-center ${
-              myPython === 0 ? "hidden" : ""
-            }`}
-            onMouseEnter={() => setMyPython(1)}
-            onMouseLeave={() => setMyPython(0)}
-          >
-            <div className="flex flex-col justify-center">
-              <h3 className={`text-xl`}>Python</h3>
-            </div>
-          </div>
-        </motion.div>
-        <motion.div animate={animation} className="h-[120px] w-[120px] p-[16px] border-[2px] border-slate-200 rounded-full">
-          <img
-            src={react}
-            className={`h-full w-full ${myReact === 1 ? "hidden" : ""}`}
-            onMouseEnter={() => setMyReact(1)}
-            onMouseLeave={() => setMyReact(0)}
-          />
-          <div
-            className={`h-full w-full bg-slate-200 font-semibold text-slate-900 rounded-full flex flex-row justify-center ${
-              myReact === 0 ? "hidden" : ""
-            }`}
-            onMouseEnter={() => setMyReact(1)}
-            onMouseLeave={() => setMyReact(0)}
-          >
-            <div className="flex flex-col justify-center">
-              <h3 className={`text-xl`}>React</h3>
-            </div>
-          </div>
-        </motion.div>
-        <motion.div animate={animation} className="h-[120px] w-[120px] p-[16px] border-[2px] border-slate-200 rounded-full">
-          <img
-            src={redux}
-            className={`h-full w-full ${myRedux === 1 ? "hidden" : ""}`}
-            onMouseEnter={() => setMyRedux(1)}
-            onMouseLeave={() => setMyRedux(0)}
-          />
-          <div
-            className={`h-full w-full bg-slate-200 font-semibold text-slate-900 rounded-full flex flex-row justify-center ${
-              myRedux === 0 ? "hidden" : ""
-            }`}
-            onMouseEnter={() => setMyRedux(1)}
-            onMouseLeave={() => setMyRedux(0)}
-          >
-            <div className="flex flex-col justify-center">
-              <h3 className={`text-xl`}>Redux</h3>
-            </div>
-          </div>
-        </motion.div>
-        <motion.div animate={animation} className="h-[120px] w-[120px] p-[16px] border-[2px] border-slate-200 rounded-full">
-          <img
-            src={next}
-            className={`h-full w-full bg-white ${
-              myNext === 1 ? "hidden" : ""
-            } rounded-full border-[0.5px]`}
-            onMouseEnter={() => setMyNext(1)}
-            onMouseLeave={() => setMyNext(0)}
-          />
-          <div
-            className={`h-full w-full bg-slate-200 font-semibold text-slate-900 rounded-full flex flex-row justify-center ${
-              myNext === 0 ? "hidden" : ""
-            }`}
-            onMouseEnter={() => setMyNext(1)}
-            onMouseLeave={() => setMyNext(0)}
-          >
-            <div className="flex flex-col bg-white rounded-full justify-center">
-              <h3 className={`text-xl`}>Next Js</h3>
-            </div>
-          </div>
-        </motion.div>
-      </div>
-      <div className="lg:grid hidden grid-cols-4 justify-between mt-6 pl-20 pr-20">
-        <motion.div animate={animation} className="h-[120px] w-[120px] p-[16px] border-[2px] border-slate-200 rounded-full">
-          <img
-            src={solidity}
-            className={`h-full w-full ${mySolidity === 1 ? "hidden" : ""}`}
-            onMouseEnter={() => setMySolidity(1)}
-            onMouseLeave={() => setMySolidity(0)}
-          />
-          <div
-            className={`h-full w-full bg-slate-200 font-semibold text-slate-900 rounded-full flex flex-row justify-center ${
-              mySolidity === 0 ? "hidden" : ""
-            }`}
-            onMouseEnter={() => setMySolidity(1)}
-            onMouseLeave={() => setMySolidity(0)}
-          >
-            <div className="flex flex-col justify-center">
-              <h3 className={`text-xl`}>Solidity</h3>
-            </div>
-          </div>
-        </motion.div>
-        <motion.div animate={animation} className="h-[120px] w-[120px] p-[16px] border-[2px] border-slate-200 rounded-full">
-          <img
-            src={nodejs}
-            className={`h-full w-full ${myNode === 1 ? "hidden" : ""}`}
-            onMouseEnter={() => setMyNode(1)}
-            onMouseLeave={() => setMyNode(0)}
-          />
-          <div
-            className={`h-full w-full bg-slate-200 font-semibold text-slate-900 rounded-full flex flex-row justify-center ${
-              myNode === 0 ? "hidden" : ""
-            }`}
-            onMouseEnter={() => setMyNode(1)}
-            onMouseLeave={() => setMyNode(0)}
-          >
-            <div className="flex flex-col justify-center">
-              <h3 className={`text-xl`}>Node Js</h3>
-            </div>
-          </div>
-        </motion.div>
-        <motion.div animate={animation} className="h-[120px] w-[120px] p-[16px] border-[2px] border-slate-200 rounded-full">
-          <img
-            src={mongodb}
-            className={`h-full w-full ${myMongoDb === 1 ? "hidden" : ""}`}
-            onMouseEnter={() => setMyMongoDb(1)}
-            onMouseLeave={() => setMyMongoDb(0)}
-          />
-          <div
-            className={`h-full w-full bg-slate-200 font-semibold text-slate-900 rounded-full flex flex-row justify-center ${
-              myMongoDb === 0 ? "hidden" : ""
-            }`}
-            onMouseEnter={() => setMyMongoDb(1)}
-            onMouseLeave={() => setMyMongoDb(0)}
-          >
-            <div className="flex flex-col justify-center">
-              <h3 className={`text-xl`}>Mongo</h3>
-            </div>
-          </div>
-        </motion.div>
-        <motion.div animate={animation} className="h-[120px] w-[120px] p-[16px] border-[2px] border-slate-200 rounded-full">
-          <img
-            src={postman}
-            className={`h-full w-full ${myPostman === 1 ? "hidden" : ""}`}
-            onMouseEnter={() => setMyPostman(1)}
-            onMouseLeave={() => setMyPostman(0)}
-          />
-          <div
-            className={`h-full w-full bg-slate-200 font-semibold text-slate-900 rounded-full flex flex-row justify-center ${
-              myPostman === 0 ? "hidden" : ""
-            }`}
-            onMouseEnter={() => setMyPostman(1)}
-            onMouseLeave={() => setMyPostman(0)}
-          >
-            <div className="flex flex-col justify-center">
-              <h3 className={`text-xl`}>Postman</h3>
-            </div>
-          </div>
-        </motion.div>
-      </div>
+    <div
+      ref={ref}
+      id="skills"
+      className="bg-black text-white relative overflow-hidden py-20 lg:px-10 md:px-6 sm:px-8 px-4"
+    >
+      {/* Background gradient effects */}
+      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-slate-900/5 to-transparent pointer-events-none"></div>
 
-      {/* ******************************************************************************* */}
+      <div className="relative z-10 max-w-7xl mx-auto">
+        {/* Section Title */}
+        <motion.div
+          initial={{ opacity: 0, y: -20 }}
+          animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: -20 }}
+          transition={{ duration: 0.6 }}
+          className="text-center mb-12"
+        >
+          <h2 className="lg:text-6xl md:text-5xl sm:text-4xl text-3xl mb-8">
+            TECHNICAL SKILLS
+          </h2>
+          <div className="flex justify-center">
+            <div className="h-[3px] w-[100px] bg-slate-700"></div>
+          </div>
+          <p className="text-slate-400 mt-6 text-lg max-w-2xl mx-auto">
+            Technologies and tools I work with to build amazing digital experiences
+          </p>
+        </motion.div>
 
-      <div className="lg:hidden grid md:grid-cols-4 xs:grid-cols-3 grid-cols-2 gap-y-[16px] justify-around">
-        <div className="flex justify-center">
-          <motion.div animate={animation} className="h-[120px] w-[120px] p-[16px] border-[2px] border-slate-200 rounded-full">
-            <img
-              src={c}
-              className={`h-full w-full ${myC === 1 ? "hidden" : ""}`}
-              onClick={() => setMyC(1)}
-            />
-            <div
-              className={`h-full w-full bg-slate-200 font-semibold text-slate-900 rounded-full flex flex-row justify-center ${
-                myC === 0 ? "hidden" : ""
-              }`}
-              onClick={() => setMyC(0)}
+        {/* Skills Grid */}
+        <motion.div
+          variants={containerVariants}
+          initial="hidden"
+          animate={inView ? "visible" : "hidden"}
+          className="grid lg:grid-cols-5 md:grid-cols-4 sm:grid-cols-3 grid-cols-2 gap-6"
+        >
+          {skills.map((skill, index) => (
+            <motion.div
+              key={index}
+              variants={itemVariants}
+              whileHover={{ 
+                scale: 1.05, 
+                y: -8,
+                transition: { duration: 0.2 }
+              }}
+              whileTap={{ scale: 0.95 }}
+              className="group relative"
             >
-              <div className="flex flex-col justify-center">
-                <h3 className={`text-xl`}>C</h3>
-              </div>
-            </div>
-          </motion.div>
-        </div>
-        <div className="flex justify-center">
-          <motion.div animate={animation} className="h-[120px] w-[120px] p-[16px] border-[2px] border-slate-200 rounded-full">
-            <img
-              src={cpp}
-              className={`h-full w-full ${myCpp === 1 ? "hidden" : ""}`}
-              onClick={() => setMyCpp(1)}
-            />
-            <div
-              className={`h-full w-full bg-slate-200 font-semibold text-slate-900 rounded-full flex flex-row justify-center ${
-                myCpp === 0 ? "hidden" : ""
-              }`}
-              onClick={() => setMyCpp(0)}
-            >
-              <div className="flex flex-col justify-center">
-                <h3 className={`text-xl`}>C++</h3>
-              </div>
-            </div>
-          </motion.div>
-        </div>
-        <div className="flex justify-center">
-          <motion.div animate={animation} className="h-[120px] w-[120px] p-[16px] border-[2px] border-slate-200 rounded-full">
-            <img
-              src={html}
-              className={`h-full w-full ${myHtml === 1 ? "hidden" : ""}`}
-              onClick={() => setMyHtml(1)}
-            />
-            <div
-              className={`h-full w-full bg-slate-200 font-semibold text-slate-900 rounded-full flex flex-row justify-center ${
-                myHtml === 0 ? "hidden" : ""
-              }`}
-              onClick={() => setMyHtml(0)}
-            >
-              <div className="flex flex-col justify-center">
-                <h3 className={`text-xl`}>HTML</h3>
-              </div>
-            </div>
-          </motion.div>
-        </div>
-        <div className="flex justify-center">
-          <motion.div animate={animation} className="h-[120px] w-[120px] p-[16px] border-[2px] border-slate-200 rounded-full">
-            <img
-              src={js}
-              className={`h-full w-full ${myJs === 1 ? "hidden" : ""}`}
-              onClick={() => setMyJs(1)}
-            />
-            <div
-              className={`h-full w-full bg-slate-200 font-semibold text-slate-900 rounded-full flex flex-row justify-center ${
-                myJs === 0 ? "hidden" : ""
-              }`}
-              onClick={() => setMyJs(0)}
-            >
-              <div className="flex flex-col justify-center">
-                <h3 className={`text-xl`}>JS</h3>
-              </div>
-            </div>
-          </motion.div>
-        </div>
-        <div className="flex justify-center">
-          <motion.div animate={animation} className="h-[120px] w-[120px] p-[16px] border-[2px] border-slate-200 rounded-full">
-            <img
-              src={typescript}
-              className={`h-full w-full p-[10px] ${myTs === 1 ? "hidden" : ""}`}
-              onClick={() => setMyTs(1)}
-            />
-            <div
-              className={`h-full w-full bg-slate-200 font-semibold text-slate-900 rounded-full flex flex-row justify-center ${
-                myTs === 0 ? "hidden" : ""
-              }`}
-              onClick={() => setMyTs(0)}
-            >
-              <div className="flex flex-col justify-center">
-                <h3 className={`text-xl`}>TS</h3>
-              </div>
-            </div>
-          </motion.div>
-        </div>
-        <div className="flex justify-center">
-          <motion.div animate={animation} className="h-[120px] w-[120px] p-[16px] border-[2px] border-slate-200 rounded-full">
-            <img
-              src={css}
-              className={`h-full w-full ${myCss === 1 ? "hidden" : ""}`}
-              onClick={() => setMyCss(1)}
-            />
-            <div
-              className={`h-full w-full bg-slate-200 font-semibold text-slate-900 rounded-full flex flex-row justify-center ${
-                myCss === 0 ? "hidden" : ""
-              }`}
-              onClick={() => setMyCss(0)}
-            >
-              <div className="flex flex-col justify-center">
-                <h3 className={`text-xl`}>CSS</h3>
-              </div>
-            </div>
-          </motion.div>
-        </div>
-        <div className="flex justify-center">
-          <motion.div animate={animation} className="h-[120px] w-[120px] p-[10px] border-[2px] border-slate-200 rounded-full">
-            <img
-              src={tailwind}
-              className={`h-full w-full ${myTailwind === 1 ? "hidden" : ""}`}
-              onClick={() => setMyTailwind(1)}
-            />
-            <div
-              className={`h-full w-full bg-slate-200 font-semibold text-slate-900 rounded-full flex flex-row justify-center ${
-                myTailwind === 0 ? "hidden" : ""
-              }`}
-              onClick={() => setMyTailwind(0)}
-            >
-              <div className="flex flex-col justify-center">
-                <h3 className={`text-xl`}>Tailwind</h3>
-              </div>
-            </div>
-          </motion.div>
-        </div>
-        <div className="flex justify-center">
-          <motion.div animate={animation} className="h-[120px] w-[120px] p-[16px] border-[2px] border-slate-200 rounded-full">
-            <img
-              src={python}
-              className={`h-full w-full ${myPython === 1 ? "hidden" : ""}`}
-              onClick={() => setMyPython(1)}
-            />
-            <div
-              className={`h-full w-full bg-slate-200 font-semibold text-slate-900 rounded-full flex flex-row justify-center ${
-                myPython === 0 ? "hidden" : ""
-              }`}
-              onClick={() => setMyPython(0)}
-            >
-              <div className="flex flex-col justify-center">
-                <h3 className={`text-xl`}>Python</h3>
-              </div>
-            </div>
-          </motion.div>
-        </div>
-        <div className="flex justify-center">
-          <motion.div animate={animation} className="h-[120px] w-[120px] p-[16px] border-[2px] border-slate-200 rounded-full">
-            <img
-              src={react}
-              className={`h-full w-full ${myReact === 1 ? "hidden" : ""}`}
-              onClick={() => setMyReact(1)}
-            />
-            <div
-              className={`h-full w-full bg-slate-200 font-semibold text-slate-900 rounded-full flex flex-row justify-center ${
-                myReact === 0 ? "hidden" : ""
-              }`}
-              onClick={() => setMyReact(0)}
-            >
-              <div className="flex flex-col justify-center">
-                <h3 className={`text-xl`}>React</h3>
-              </div>
-            </div>
-          </motion.div>
-        </div>
-        <div className="flex justify-center">
-          <motion.div animate={animation} className="h-[120px] w-[120px] p-[16px] border-[2px] border-slate-200 rounded-full">
-            <img
-              src={redux}
-              className={`h-full w-full ${myRedux === 1 ? "hidden" : ""}`}
-              onClick={() => setMyRedux(1)}
-            />
-            <div
-              className={`h-full w-full bg-slate-200 font-semibold text-slate-900 rounded-full flex flex-row justify-center ${
-                myRedux === 0 ? "hidden" : ""
-              }`}
-              onClick={() => setMyRedux(0)}
-            >
-              <div className="flex flex-col justify-center">
-                <h3 className={`text-xl`}>Redux</h3>
-              </div>
-            </div>
-          </motion.div>
-        </div>
-        <div className="flex justify-center">
-          <motion.div animate={animation} className="h-[120px] w-[120px] p-[16px] border-[2px] border-slate-200 rounded-full">
-            <img
-              src={next}
-              className={`h-full w-full bg-white ${
-                myNext === 1 ? "hidden" : ""
-              } rounded-full border-[0.5px]`}
-              onClick={() => setMyNext(1)}
-            />
-            <div
-              className={`h-full w-full bg-slate-200 font-semibold text-slate-900 rounded-full flex flex-row justify-center ${
-                myNext === 0 ? "hidden" : ""
-              }`}
-              onClick={() => setMyNext(0)}
-            >
-              <div className="flex flex-col bg-white rounded-full justify-center">
-                <h3 className={`text-xl`}>Next Js</h3>
-              </div>
-            </div>
-          </motion.div>
-        </div>
-        <div className="flex justify-center">
-          <motion.div animate={animation} className="h-[120px] w-[120px] p-[16px] border-[2px] border-slate-200 rounded-full">
-            <img
-              src={solidity}
-              className={`h-full w-full ${mySolidity === 1 ? "hidden" : ""}`}
-              onClick={() => setMySolidity(1)}
-            />
-            <div
-              className={`h-full w-full bg-slate-200 font-semibold text-slate-900 rounded-full flex flex-row justify-center ${
-                mySolidity === 0 ? "hidden" : ""
-              }`}
-              onClick={() => setMySolidity(0)}
-            >
-              <div className="flex flex-col justify-center">
-                <h3 className={`text-xl`}>Solidity</h3>
-              </div>
-            </div>
-          </motion.div>
-        </div>
+              <div className="bg-gradient-to-br from-slate-900/60 to-slate-800/40 backdrop-blur-sm border border-slate-700/50 rounded-2xl p-6 shadow-xl hover:shadow-2xl hover:border-slate-600/70 transition-all duration-300 h-full flex flex-col items-center justify-center cursor-pointer">
+                {/* Icon Container */}
+                <div className="relative mb-4 w-20 h-20 flex items-center justify-center">
+                  <div className="absolute inset-0 bg-gradient-to-br from-slate-700/30 to-slate-800/30 rounded-xl blur-lg group-hover:blur-xl transition-all duration-300 opacity-0 group-hover:opacity-100"></div>
+                  <div className="relative w-full h-full bg-slate-800/50 border border-slate-700/50 rounded-xl p-3 flex items-center justify-center group-hover:bg-slate-700/50 group-hover:border-slate-600/50 transition-all duration-300">
+                    {skill.name === "Next.js" ? (
+                      <img
+                        src={skill.icon}
+                        alt={skill.name}
+                        className="w-full h-full object-contain bg-white rounded-lg p-1"
+                      />
+                    ) : (
+                      <img
+                        src={skill.icon}
+                        alt={skill.name}
+                        className="w-full h-full object-contain"
+                      />
+                    )}
+                  </div>
+                </div>
 
-        <div className="flex justify-center">
-          <motion.div animate={animation} className="h-[120px] w-[120px] p-[16px] border-[2px] border-slate-200 rounded-full">
-            <img
-              src={nodejs}
-              className={`h-full w-full ${myNode === 1 ? "hidden" : ""}`}
-              onClick={() => setMyNode(1)}
-            />
-            <div
-              className={`h-full w-full bg-slate-200 font-semibold text-slate-900 rounded-full flex flex-row justify-center ${
-                myNode === 0 ? "hidden" : ""
-              }`}
-              onClick={() => setMyNode(0)}
-            >
-              <div className="flex flex-col justify-center">
-                <h3 className={`text-xl`}>Node Js</h3>
+                {/* Skill Name */}
+                <h3 className="text-slate-200 font-semibold text-center text-sm mb-1 group-hover:text-white transition-colors">
+                  {skill.name}
+                </h3>
+
+                {/* Category Badge */}
+                <span className="text-xs text-slate-500 group-hover:text-slate-400 transition-colors">
+                  {skill.category}
+                </span>
+
+                {/* Hover Glow Effect */}
+                <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-slate-600/0 via-slate-500/0 to-slate-600/0 group-hover:from-slate-600/10 group-hover:via-slate-500/5 group-hover:to-slate-600/10 transition-all duration-300 pointer-events-none"></div>
               </div>
-            </div>
-          </motion.div>
-        </div>
-        <div className="flex justify-center">
-          <motion.div animate={animation} className="h-[120px] w-[120px] p-[16px] border-[2px] border-slate-200 rounded-full">
-            <img
-              src={mongodb}
-              className={`h-full w-full ${myMongoDb === 1 ? "hidden" : ""}`}
-              onClick={() => setMyMongoDb(1)}
-            />
-            <div
-              className={`h-full w-full bg-slate-200 font-semibold text-slate-900 rounded-full flex flex-row justify-center ${
-                myMongoDb === 0 ? "hidden" : ""
-              }`}
-              onClick={() => setMyMongoDb(0)}
-            >
-              <div className="flex flex-col justify-center">
-                <h3 className={`text-xl`}>Mongo</h3>
-              </div>
-            </div>
-          </motion.div>
-        </div>
-        <div className="flex justify-center">
-          <motion.div animate={animation} className="h-[120px] w-[120px] p-[16px] border-[2px] border-slate-200 rounded-full">
-            <img
-              src={postman}
-              className={`h-full w-full ${myPostman === 1 ? "hidden" : ""}`}
-              onClick={() => setMyPostman(1)}
-            />
-            <div
-              className={`h-full w-full bg-slate-200 font-semibold text-slate-900 rounded-full flex flex-row justify-center ${
-                myPostman === 0 ? "hidden" : ""
-              }`}
-              onClick={() => setMyPostman(0)}
-            >
-              <div className="flex flex-col justify-center">
-                <h3 className={`text-xl`}>Postman</h3>
-              </div>
-            </div>
-          </motion.div>
-        </div>
+            </motion.div>
+          ))}
+        </motion.div>
+
+        {/* Additional Info Section */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+          transition={{ duration: 0.6, delay: 0.3 }}
+          className="mt-16 text-center"
+        >
+          <div className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-br from-slate-900/60 to-slate-800/40 backdrop-blur-sm border border-slate-700/50 rounded-full">
+            <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse"></div>
+            <span className="text-slate-300 text-sm">
+              Continuously learning and exploring new technologies
+            </span>
+          </div>
+        </motion.div>
       </div>
     </div>
   );
 }
 
 export default Skills;
-
-
-
