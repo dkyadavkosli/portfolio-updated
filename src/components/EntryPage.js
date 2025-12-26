@@ -15,12 +15,10 @@ function EntryPage() {
             return 0;
           }
         });
-      }, 120);
+      }, 80);
   
       return () => clearInterval(interval);
     }, []);
-
-    // console.log(count)
 
     const [animatedText, setAnimatedText] = useState('');
 

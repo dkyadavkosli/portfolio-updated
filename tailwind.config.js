@@ -5,6 +5,9 @@ module.exports = {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        sans: ['Roboto', 'sans-serif'],
+      },
       keyframes: {
         'bg-fade-in': {
           '0%': { backgroundColor: 'transparent', },

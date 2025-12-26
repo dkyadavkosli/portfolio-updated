@@ -109,11 +109,64 @@
 }
 
 .project-card {
-  perspective: 1000px; /* Adds perspective for 3D effect */
+  perspective: 1000px;
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  will-change: transform;
 }
 
-.project-card:hover .h-full {
-  transform-style: preserve-3d;
-  transition: transform 1.5s;
-  transform: rotateY(360deg); /* Rotate 180 degrees along y-axis on hover */
+/* Smooth image zoom on hover */
+.project-card img {
+  will-change: transform;
+  backface-visibility: hidden;
+}
+
+/* Enhanced card hover effects with smooth transitions */
+.project-card > div {
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Subtle glow effect on card hover */
+.project-card:hover {
+  filter: brightness(1.05);
+}
+
+/* Smooth transitions for all interactive elements */
+.project-card * {
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Contact Form Enhancements */
+#contact input,
+#contact textarea {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+#contact input:focus,
+#contact textarea:focus {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+}
+
+/* Social Media Icons Hover Effect */
+#contact a[href*="github"],
+#contact a[href*="linkedin"],
+#contact a[href*="instagram"],
+#contact a[href*="twitter"] {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Smooth form animations */
+#contact form {
+  animation: fadeInUp 0.8s ease-out;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
