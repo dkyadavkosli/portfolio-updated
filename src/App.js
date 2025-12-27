@@ -10,6 +10,8 @@ import SkillStrip from './components/SkillStrip';
 import Intro from './components/Intro';
 import IntroStrip from './components/IntroStrip';
 import About from './components/About';
+import ExperienceStrip from './components/ExperienceStrip';
+import WorkingExperience from './components/WorkingExperience';
 import ContactStrip from './components/ContactStrip';
 import ProjectStrip from './components/ProjectStrip';
 import RecentProject from './components/RecentProject';
@@ -54,6 +56,8 @@ function App() {
         <Intro />
         <SkillStrip />
         <About />
+        <ExperienceStrip />
+        <WorkingExperience />
         <ProjectStrip />
         <RecentProject />
         <SkillStatementStrip />
