@@ -141,7 +141,7 @@ const Contact = () => {
           >
             {/* Description Card */}
             <div className="bg-gradient-to-br from-slate-900/50 to-slate-800/30 backdrop-blur-sm border border-slate-700/50 rounded-2xl p-6 shadow-xl">
-              <p className="text-start text-base leading-relaxed text-slate-300 font-light">
+              <p className="text-center text-base leading-relaxed text-slate-300 font-light">
                 Wanna give some suggestions, share some thoughts or have some
                 conversations? Feel free to reach out through any of the
                 mentioned social media platforms or just fill out the attached
@@ -151,10 +151,10 @@ const Contact = () => {
 
             {/* Social Media Links */}
             <div className="space-y-4">
-              <h3 className="text-xl font-semibold text-slate-200 mb-4 text-left">
+              <h3 className="text-xl font-semibold text-slate-200 mb-4 text-center">
                 Connect with me
               </h3>
-              <div className="flex flex-wrap gap-4 justify-start">
+              <div className="flex flex-wrap gap-4 justify-center">
                 {socialLinks.map((social, index) => {
                   const Icon = social.icon;
                   return (
@@ -182,10 +182,10 @@ const Contact = () => {
 
             {/* Email Section */}
             <div className="bg-gradient-to-br from-slate-900/50 to-slate-800/30 backdrop-blur-sm border border-slate-700/50 rounded-2xl p-6 shadow-xl">
-              <p className="text-start text-sm text-slate-400 mb-3 font-medium">
+              <p className="text-center text-sm text-slate-400 mb-3 font-medium">
                 Wanna drop a mail directly?
               </p>
-              <div className="flex items-center gap-3 group cursor-pointer">
+              <div className="flex items-center justify-center gap-3 group cursor-pointer">
                 <SiGmail className="text-2xl text-slate-400 group-hover:text-red-400 transition-colors" />
                 <a
                   href="mailto:dipesh23062003@gmail.com"
