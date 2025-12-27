@@ -28,12 +28,14 @@ const Contact = () => {
   const sendEmail = (e) => {
     e.preventDefault();
 
+    console.log(form.current);
+
     emailjs
       .sendForm(
-        "service_zc77mqb",
-        "template_7hywnyj",
+        "service_r61kmn8",
+        "template_5gxoita",
         form.current,
-        "LUnYIlet7n_mbuXeU"
+        "0J3p5PmdR7bRXKFCv"
       )
       .then(
         (result) => {
@@ -71,7 +73,7 @@ const Contact = () => {
 
   const [isVisible, setIsVisible] = useState(false);
   const { ref, inView } = useInView({
-    threshold: 0.3,
+    threshold: 0.02, // Trigger when at least 2% is visible (disappear when 98% is out)
   });
 
   useEffect(() => {

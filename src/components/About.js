@@ -47,7 +47,7 @@ function About() {
 
     const [isVisible, setIsVisible] = useState(false);
     const { ref, inView } = useInView({
-      threshold: 0.4, // Trigger when 50% of the component is in view
+      threshold: 0.02, // Trigger when at least 2% is visible (disappear when 98% is out)
     });
   
     useEffect(() => {
@@ -83,7 +83,7 @@ function About() {
     ];
 
     return (
-        <div id='about' className='bg-black text-white relative overflow-hidden py-20 lg:px-10 md:px-6 sm:px-8 px-4'>
+        <div ref={ref} id='about' className='bg-black text-white relative overflow-hidden py-20 lg:px-10 md:px-6 sm:px-8 px-4'>
             {/* Background gradient effects */}
             <div className='absolute inset-0 bg-gradient-to-b from-transparent via-slate-900/5 to-transparent pointer-events-none'></div>
             
@@ -95,7 +95,7 @@ function About() {
 
                 <div className='grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-8'>
                     {/* Left Column */}
-                    <section ref={ref} className="space-y-6">
+                    <section className="space-y-6">
                         {/* Intro Card */}
                         <motion.article
                             initial={{ opacity: 0, y: 30 }}
