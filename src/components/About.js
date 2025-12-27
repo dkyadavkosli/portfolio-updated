@@ -7,7 +7,7 @@ import {
   SiGmail,
 } from "react-icons/si";
 import { motion } from "framer-motion";
-import pic from "../assets/MyImage.png";
+import pic from "../assets/MyImage-2.jpg";
 import react from "../assets/react.png";
 import solidity from "../assets/solidity.png";
 import tailwind from "../assets/tailwind.svg";
@@ -177,6 +177,8 @@ function About() {
               transition={{ duration: 0.6, ease: "easeOut", delay: 0.2 }}
               className="relative group overflow-hidden rounded-2xl"
             >
+              {/* Dark overlay to make image less visible */}
+              <div className="absolute inset-0 bg-black/50 z-10 rounded-2xl"></div>
               <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent z-10 rounded-2xl"></div>
               <img
                 className="h-full w-full max-h-[450px] object-cover rounded-2xl transition-transform duration-700 group-hover:scale-110"
